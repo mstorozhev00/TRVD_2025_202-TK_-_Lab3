@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Реєстрація</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <a href="/" class="logo-link">
+          <div class="logo">VO</div>
+          <h1>VibeOn</h1>
+        </a>
+      </div>
+
+      <nav>
+        <div class="divider muted">-</div>
+        <a class="nav-item" href="/">
+          <i class="icon">🏠</i> <span class="label">Головна</span>
+        </a>
+        <a class="nav-item active">
+          <i class="icon">👥</i> <span class="label">Користувачі</span>
+        </a>
+        <a class="nav-item">
+          <i class="icon">📖</i> <span class="label">Стрічка</span>
+        </a>
+        <a class="nav-item">
+          <i class="icon">❤️</i> <span class="label">Улюблене</span>
+        </a>
+        <a class="nav-item">
+          <i class="icon">💬</i> <span class="label">Чати</span>
+          <span class="badge">15</span>
+        </a>
+        <div class="divider muted">База даних</div>
+        <a class="nav-item" href="/users">
+          <i class="icon">⚙️</i> <span class="label">Користувачі</span>
+        </a>
+      </nav>
+
+      <div class="footer-options"><a href="/support">Support</a> · <a href="#">Report</a></div>
+    </aside>
+
+    <main class="main-wrap">
+
+      <header class="topbar">
+        <div class="search">
+          <input type="text" placeholder="Search">
+        </div>
+        <div class="top-actions">
+          <button class="pill"><a href="/login">Увійти</a></button>
+                  </div>
+      </header>
+
+      <section style="display:flex;justify-content:center;align-items:center;height:80vh;">
+        <div style="background:var(--card);padding:40px;border-radius:var(--radius);box-shadow:var(--shadow);width:360px;">
+          <h2 style="margin-bottom:24px;">Реєстрація</h2>
+
+          {{#error}}
+            <p style="color:red;margin-bottom:12px;">{{error}}</p>
+          {{/error}}
+
+          <form action="/auth/register" method="POST" style="display:flex;flex-direction:column;gap:12px;">
+            <input type="text" name="name" placeholder="Ім'я" required style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px;">
+            <input type="email" name="email" placeholder="Email" required style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px;">
+            <input type="number" name="age" placeholder="Вік" style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px;">
+            <input type="password" name="password" placeholder="Пароль" required style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px;">
+            <button type="submit" style="padding:12px;background:var(--accent);color:white;border:none;border-radius:10px;font-weight:700;cursor:pointer;">Зареєструватися</button>
+          </form>
+
+          <p style="margin-top:16px;">Вже є акаунт? <a href="/auth/login">Увійти</a></p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>

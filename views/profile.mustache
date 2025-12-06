@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <a href="/" class="logo-link">
+        <div class="logo">VO</div>
+        <h1>VibeOn</h1>
+      </a>
+    </div>
+    <nav>
+      <a class="nav-item" href="/">🏠 Головна</a>
+      <a class="nav-item" href="/users">👥 Користувачі</a>
+      <a class="nav-item active" href="/profile">👤 Профіль</a>
+    </nav>
+  </aside>
+
+  <main class="main-wrap">
+    <h2 class="section-title">Профіль користувача</h2>
+    <div class="cards" style="max-width:400px;">
+      <div class="card">
+        <div class="card-header">
+          <div class="avatar"></div>
+          <div class="user-info">
+            <h4>{{user.name}}</h4>
+            <span class="time">{{user.email}}</span>
+          </div>
+        </div>
+        <p>Вік: <strong>{{user.age}}</strong></p>
+        <p>Роль: <strong>{{user.role}}</strong></p>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

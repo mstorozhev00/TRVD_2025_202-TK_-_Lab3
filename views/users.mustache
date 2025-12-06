@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Користувачі</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <a href="/" class="logo-link">
+          <div class="logo">VO</div>
+          <h1>VibeOn</h1>
+        </a>
+      </div>
+
+      <nav>
+        <div class="divider muted">-</div>
+        <a class="nav-item" href="/">
+          <i class="icon">🏠</i> <span class="label">Головна</span>
+        </a>
+        <a class="nav-item active" href="/users">
+          <i class="icon">👥</i> <span class="label">Користувачі</span>
+        </a>
+        <a class="nav-item">
+          <i class="icon">📖</i> <span class="label">Стрічка</span>
+        </a>
+        <a class="nav-item">
+          <i class="icon">❤️</i> <span class="label">Улюблене</span>
+        </a>
+        <a class="nav-item">
+          <i class="icon">💬</i> <span class="label">Чати</span>
+          <span class="badge">15</span>
+        </a>
+
+        <div class="divider muted">База даних</div>
+        <a class="nav-item" href="/users">
+          <i class="icon">⚙️</i> <span class="label">Користувачі</span>
+        </a>
+      </nav>
+
+      <div class="footer-options"><a href="/support">Support</a> · <a href="#">Report</a></div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-wrap">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="search">
+          <input type="text" placeholder="Search">
+        </div>
+        <div class="top-actions">
+          <button class="pill"><a href="/login">Увійти</a></button>          <a href="/profile">
+            <img class="user-avatar" src="https://64.media.tumblr.com/3e14b2843171b2703d0bd6f01f1e1c42/a07817157830bb0e-8c/s1280x1920/1b9fd899f7ef512164f0dc61f3260873051a26a2.jpg" alt="">
+          </a>
+        </div>
+      </header>
+
+      <!-- PAGE TITLE -->
+      <section>
+        <h2 class="section-title">Список користувачів</h2>
+
+        <!-- USERS LIST -->
+        <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+
+          {{#users}}
+          <div class="card">
+            <div class="card-header">
+              <div class="avatar"></div>
+              <div class="user-info">
+                <h4>{{name}}</h4>
+                <span class="time">{{email}}</span>
+              </div>
+            </div>
+
+            <p style="padding-bottom: 0;">Вік: <strong>{{age}}</strong></p>
+          </div>
+          {{/users}}
+
+          {{^users}}
+          <p style="padding-left:18px;">Немає користувачів 😢</p>
+          {{/users}}
+
+        </div>
+      </section>
+
+      <!-- ADD USER FORM -->
+      <section>
+        <h3 class="section-title">Додати користувача</h3>
+
+        <form action="/users" method="POST"
+          style="background:white;padding:20px;border-radius:12px;box-shadow:var(--shadow);width:340px;margin-left:18px;display:flex;flex-direction:column;gap:12px;">
+
+          <input type="text" name="name" placeholder="Ім'я" required
+            style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px;">
+
+          <input type="email" name="email" placeholder="Email" required
+            style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px;">
+
+          <input type="number" name="age" placeholder="Вік" required
+            style="padding:10px;border-radius:8px;border:1px solid #ddd;font-size:14px;">
+
+          <button type="submit"
+            style="padding:12px;background:var(--accent);color:white;border:none;border-radius:10px;font-weight:700;cursor:pointer;">
+            Додати
+          </button>
+        </form>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="site-footer">
+        <div class="footer-content">
+          <p>© 2025 VibeOn. Усі права захищені.</p>
+          <div class="footer-links">
+            <a href="/about">Про нас</a>
+            <a href="#">Контакти</a>
+            <a href="#">Політика конфіденційності</a>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+</body>
+
+</html>
